@@ -1,5 +1,5 @@
-FROM centos:7
-MAINTAINER shawnyan "shawn2016@aliyun.com"
+FROM shawnyan/docker:centos7.3.1611
+MAINTAINER Shawn Yan https://github.com/shawn0915/docker-study
 
 ENV container docker
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \

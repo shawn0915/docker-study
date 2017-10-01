@@ -35,8 +35,9 @@ docker exec -t -i centos7.3 /bin/bash
 docker images
 docker images shawnyan/docker
 docker image ls -a
-docker image rm <id>
-#
+docker image rm <CONTAINER ID>
+docker image rm `docker image ls -a -q`
+# 构建镜像的每一层
 docker history <id>
 ```
 
@@ -79,6 +80,8 @@ docker-machine ip
 
 > 提交定制容器
 ```bash
-docker commit -m "comment" <id> <repo>
+docker commit -m "comment" <CONTAINER ID> <user/repo>
 docker commit -m "centos7.3 core" -a "shawnyan" e819c4cb23a4 shawnyan/docker:centos7.3
+#
+docker push <user/repo:tag>
 ```
