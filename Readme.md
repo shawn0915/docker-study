@@ -28,4 +28,5 @@
 - [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac)
 - [reference](https://docs.docker.com/reference/)
 - [userguide](https://docs.docker.com/engine/userguide/)
+- [docker-in-docker](https://github.com/jpetazzo/dind)
 - [Dockerfile](https://github.com/dockerfile/)

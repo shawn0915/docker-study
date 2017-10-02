@@ -1,6 +1,7 @@
 FROM shawnyan/docker:centos7.3.1611
 MAINTAINER Shawn Yan https://github.com/shawn0915/docker-study
 
+# https://dev.aliyun.com/detail.html?spm=5176.1971733.2.4.74wtPT&repoId=1198
 ENV container docker
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
 systemd-tmpfiles-setup.service ] || rm -f $i; done); \
