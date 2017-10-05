@@ -6,6 +6,7 @@
 ```bash
 cd centos7.3.1611
 docker build --rm -t="shawnyan/docker:centos7.3.1611" .
+docker build --rm --no-cache=true -m=2g --memory-swap=4g -t="shawnyan/docker:centos7.3.1611_2m" .
 ```
 
 - centos7.3_base
@@ -37,3 +38,4 @@ docker build --rm -t="shawnyan/docker:ubuntu16.04_sshd" .
 #
 docker run -d -it <id>
 ```
+

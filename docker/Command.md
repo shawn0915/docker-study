@@ -1,7 +1,7 @@
 # 常用命令
 
 - [docker build](dockerBuild.md)
-
+- docker的四种状态(start/pause/restart/stop)
 
 > 基础命令
 ```bash
@@ -23,11 +23,17 @@ docker run --name centos7.3 -i -t centos:7.3.1611 /bin/bash
 docker run --name centos7.3_d -i -t -d centos:7.3.1611 /bin/bash
 # 自动重启
 docker run --restart=always
+# rename
+docker rename centos7.3 centos7.3.1611
+# pause
+docker pause happy_hahaha
+docker unpause happy_hahaha
 ```
 
 > 容器交互
 ```bash
 docker exec -t -i centos7.3 /bin/bash
+docker exec -it centos7.3 /bin/bash
 ```
 
 > 查看镜像
