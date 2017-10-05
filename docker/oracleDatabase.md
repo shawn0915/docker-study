@@ -4,6 +4,8 @@
 
 ## 11.2.0.2 xe
 
+! swap space 需要大于2048M
+
 拉取基础镜像
 ```bash
 docker pull oraclelinux:7-slim
