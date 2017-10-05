@@ -15,6 +15,19 @@ docker pull
 docker pull centos:7.3.1611
 ```
 
+> 容器状态
+```bash
+# start
+docker start happy_hahaha
+# restart
+docker restart happy_hahaha
+# stop
+docker stop happy_hahaha
+# pause
+docker pause happy_hahaha
+docker unpause happy_hahaha
+```
+
 > 运行容器
 ```bash
 # docker run
@@ -23,11 +36,10 @@ docker run --name centos7.3 -i -t centos:7.3.1611 /bin/bash
 docker run --name centos7.3_d -i -t -d centos:7.3.1611 /bin/bash
 # 自动重启
 docker run --restart=always
+# 挂载数据卷
+docker run --rm -it -v /host/data/:/data:rw happy_hahaha /bin/bash
 # rename
 docker rename centos7.3 centos7.3.1611
-# pause
-docker pause happy_hahaha
-docker unpause happy_hahaha
 ```
 
 > 容器交互
@@ -45,13 +57,6 @@ docker image rm <CONTAINER ID>
 docker image rm `docker image ls -a -q`
 # 构建镜像的每一层
 docker history <id>
-```
-
-> 启停容器
-```bash
-docker start centos7.3
-docker stop centos7.3
-docker restart centos7.3
 ```
 
 > 删除容器
@@ -79,15 +84,21 @@ docker inspect centos7.3 --format='{{ .NetworkSettings.IPAddress }}'
 docker inspect centos7.3 --format='{{ .State.Status }}'
 ```
 
-> Docker ToolBox host ip
+> 导出导入镜像
 ```bash
-docker-machine ip
+# export
+docker save -o ol7.tar oraclelinux:7-slim
+# import
+docker load -i ol7.tar
 ```
 
 > 提交定制容器
 ```bash
 docker commit -m "comment" <CONTAINER ID> <user/repo>
 docker commit -m "centos7.3 core" -a "shawnyan" e819c4cb23a4 shawnyan/docker:centos7.3
-#
+```
+
+> 推送镜像
+```bash
 docker push <user/repo:tag>
 ```

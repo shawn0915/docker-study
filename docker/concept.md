@@ -4,6 +4,7 @@
 
 - [LXC](https://github.com/lxc/lxc)
 - Linux Container, 内核容器技术
+- Cgroup, Namespace, rootfs 
 
 ## 容器文件系统
 
