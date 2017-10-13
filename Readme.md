@@ -36,3 +36,15 @@
 - [Docker run reference](https://docs.docker.com/engine/reference/run/)
 - [docker-in-docker](https://github.com/jpetazzo/dind)
 - [Dockerfile](https://github.com/dockerfile/)
+
+```
+http://insights.thoughtworkers.org/start-continuous-delivery-with-docker/
+2.1	Docker Book
+https://www.gitbook.com/book/yeasy/docker_practice/details
+
+2.2	私有仓库
+http://dockerpool.com/static/books/docker_practice/repository/local_repo.html
+http://blog.csdn.net/wsscy2004/article/details/26279569
+https://github.com/dotcloud/docker-registry
+http://segmentfault.com/a/1190000000801162
+```
