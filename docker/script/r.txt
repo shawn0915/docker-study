@@ -1,0 +1,82 @@
+
+
+ docker run -d -p 8088:5000 --restart=always --name registry -v /opt/myregistry:/var/lib/registry registry:2
+
+a6f042c4b288        registry:2          "/bin/registry serve "   24 hours ago        Up 24 hours         0.0.0.0:8088->5000/tcp   registry
+
+
+vim  /etc/sysconfig/docker-storage
+
+DOCKER_STORAGE_OPTIONS="--storage-opt dm.no_warn_on_loop_devices=true"
+
+
+http://172.24.40.155:8088/v2/
+
+
+=========================================
+server local:
+docker tag 28e524afdd05 172.24.40.155:8088/centos_new
+
+docker push 172.24.40.155:8088/centos_new  
+curl  http://172.24.40.155:8088/v2/_catalog
+
+=======================================
+
+client客户端基本配置:
+/etc/sysconfig/docker
+--insecure-registry 172.24.40.155:8088
+
+client客户端上传:(客户端向Registry存放镜像)
+curl  http://172.24.40.155:8088/v2/_catalog
+
+docker images  
+docker tag 28e524afdd05 172.24.40.155:8088/centos_new
+docker push 172.24.40.155:8088/centos_new  
+
+client客户端下载：
+
+curl  http://172.24.40.155:8088/v2/_catalog
+docker pull 172.24.40.155:8088/centos_new 
+
+=============================================
+主机桥接配置：
+Docker 默认的桥接网卡是docker0
+brctl  show
+systemctl restart network
+brctl addbr br0
+brctl addif br0   ens34444 
+
+nmcli connection add con-name br1 type bridge ifname br1
+nmcli connection modify br1 ipv4.addresses "172.24.40.230/24,172.24.40.1"
+nmcli connection modify br1 ipv4.method manual
+nmcli connection add con-name br1-port1 type bridge-slave ifname ens34 master br1
+
+/etc/sysconfig/docker
+添加：OPTIONS='--selinux-enabled -b=br1'
+
+======================================
+weave 
+curl -L git.io/weave -o /usr/local/bin/weave
+chmod  a+x /usr/local/bin/weave
+weave launch
+[root@host 桌面]# docker  images 
+REPOSITORY                      TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+docker.io/registry              2                   52b85edb4008        2 weeks ago         171.1 MB
+<none>                          <none>              32f2a4cccab8        4 weeks ago         125 MB
+172.24.40.155:8088/centos_new   latest              28e524afdd05        4 weeks ago         196.7 MB
+docker.io/centos                latest              28e524afdd05        4 weeks ago         196.7 MB
+
+
+
+
+ docker run -d -p 80:5000 --restart=always --name registry -v /opt/myregistry:/var/lib/registry registry:2
+
+
+curl -L -o /tmp/daomonit.x86_64.rpm https://get.daocloud.io/daomonit/daomonit.x86_64.rpm 
+sudo rpm -Uvh /tmp/daomonit.x86_64.rpm
+
+
+daomonit -token=af4a9aa1184753f2d6a6c09dcbe81157c968177f save-config
+
+
+service daomonit start
