@@ -19,14 +19,20 @@ docker build --rm -t="shawnyan/docker:centos7.3_base" .
 ```bash
 cd centos7.3_systemd
 docker build --rm -t="shawnyan/docker:centos7.3_systemd" .
+#
+docker run -dit --privileged=true --name centos7 shawnyan/docker:centos7.3_systemd
+# httpd
+docker run -dit --privileged=true --name httpd -v /Volumes/HDD/dockerdata:/data:rw -p 8080:80 shawnyan/docker:centos7_v2
 ``` 
 
 - centos7.3_systemd_httpd
 ```bash
-cd centos7.3_systemd
-docker build --rm -t="shawnyan/docker:centos7.3_systemd_httpd" .
+cd centos7.3_systemd_httpd
+docker build --rm -t="shawnyan/docker:httpd" .
 #
-docker run --privileged=true -ti -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:80 shawnyan/docker:centos7.3_systemd_httpd
+docker run --privileged=true -ti -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:80 shawnyan/docker:httpd
+# mac
+docker run -dit --privileged=true -p 8080:80 --name httpd shawnyan/docker:httpd
 ``` 
 
 ## ubuntu

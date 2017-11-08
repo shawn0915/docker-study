@@ -38,6 +38,7 @@ docker run --name centos7.3_d -i -t -d centos:7.3.1611 /bin/bash
 docker run --restart=always
 # 挂载数据卷
 docker run --rm -it -v /host/data/:/data:rw happy_hahaha /bin/bash
+docker run --name centos7.3-elk -dit -v /Volumes/HDD/dockerdata:/data:rw -p 8080:80 -p 5601:5601 -p 9200:9200 --privileged=true shawnyan/docker:centos7.3.1611 /usr/sbin/init
 # rename
 docker rename centos7.3 centos7.3.1611
 ```
@@ -96,6 +97,7 @@ docker load -i ol7.tar
 ```bash
 docker commit -m "comment" <CONTAINER ID> <user/repo>
 docker commit -m "centos7.3 core" -a "shawnyan" e819c4cb23a4 shawnyan/docker:centos7.3
+docker commit -m "centos7_v2" -a "shawnyan" centos7 shawnyan/docker:centos7_v2
 ```
 
 > 推送镜像
