@@ -1,5 +1,9 @@
 # docker build
 
+- [CentOS](#centos)
+- [ubuntu](#ubuntu)
+- [mysql-docker](mysql-docker.md)
+
 ## centos
 
 - centos7.3.1611
@@ -55,15 +59,3 @@ docker build --rm -t="shawnyan/docker:ubuntu16.04_sshd" .
 docker run -d -it <id>
 ```
 
-## oraclelinux
-
-- ol7_mysql57
-```bash
-# build
-docker build --rm --no-cache=true -t "shawnyan/docker:mysql57" .
-# run
-#docker run --name my-container-name -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql/mysql-server:tag
-docker run --name mysql57 -p 33306:3306 -e MYSQL_ROOT_PASSWORD=password -d shawnyan/docker:mysql57
-# connect
-docker exec -it mysql57 mysql -uroot -p
-```
