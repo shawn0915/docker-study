@@ -7,7 +7,7 @@
 # pull
 docker pull mariadb:10.1
 # run
-docker run --name mariadb101 -e MYSQL_ROOT_PASSWORD=password -d mariadb:10.1
+docker run --name mariadb101 -p 33326:3306 -e MYSQL_ROOT_PASSWORD=password -d mariadb:10.1
 # connect
 docker exec -it mariadb101 mysql -uroot -p
 ```
@@ -18,7 +18,7 @@ docker exec -it mariadb101 mysql -uroot -p
 # pull
 docker pull mariadb:10.2
 # run
-docker run --name mariadb101 -e MYSQL_ROOT_PASSWORD=password -d mariadb:10.2
+docker run --name mariadb101 -p 33336:3306 -e MYSQL_ROOT_PASSWORD=password -d mariadb:10.2
 # connect
 docker exec -it mariadb101 mysql -uroot -p
 ```
