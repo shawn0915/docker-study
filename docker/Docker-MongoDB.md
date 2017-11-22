@@ -3,11 +3,11 @@ v3.4
 
 ```bash
 # run
-docker run --name mongo34 -d mongo:3.4
+docker run --name mongo34 -p 27017:27017 -d mongo:3.4
 # connect
 docker exec -it mongo34 mongo admin
 # create user
-db.createUser({ user: 'shawn', pwd: 'password', roles: [ { role: "userAdminAnyDatabase", db: "admin" } ] });
+db.createUser({ user: 'shawnyan', pwd: 'password', roles: [ { role: "userAdminAnyDatabase", db: "admin" } ] });
 ```
 
 ## Reference
