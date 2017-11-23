@@ -45,6 +45,7 @@
 - [docker-in-docker](https://github.com/jpetazzo/dind)
 - [Dockerfile](https://github.com/dockerfile/)
 - [docker/distribution](https://github.com/docker/distribution)
+- [广发银行：Docker 适配传统运维的那些事](https://mp.weixin.qq.com/s/VcrVnd1txPKvO4znJuT1tA)
 
 ```
 http://insights.thoughtworkers.org/start-continuous-delivery-with-docker/
