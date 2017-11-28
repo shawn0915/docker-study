@@ -25,7 +25,7 @@ docker exec -it mysql57 mysql -uroot -p
 ```
 
 
-## REF
+## Reference
 
-- [mysql-docker](https://github.com/mysql/mysql-docker/MySQL-docker.md)
+- [mysql-docker](https://github.com/mysql/mysql-docker)
 - [linux-installation-docker](https://dev.mysql.com/doc/refman/5.7/en/linux-installation-docker.html)
